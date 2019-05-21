@@ -72,6 +72,7 @@ init([]) ->
     inets:start(),
 	httpc:set_options([{proxy, {{"www.myproxy.com", 8000},["localhost"]}}]),
 	RequestUrl = ?CouchDB_Node ++ ?DB_Name,
+	httpc:request(delete,{RequestUrl, []}, [], []),
 	Result = httpc:request(get,{RequestUrl, []}, [], []),
 	%io:format("~s",[Result]),
 	{ok, init_couch_db(Result)}.

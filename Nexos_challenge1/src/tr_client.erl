@@ -1,5 +1,6 @@
 -module(tr_client).
 -include("include/myRecords.hrl").
+-include_lib("stdlib/include/assert.hrl").
 -export([query_all/0,query_single/1,query_multiple/1,add_account/4,delete_account/2]).
 
 
@@ -16,3 +17,9 @@ delete_account(DocID, Rev_Id) ->
     tr_server:delete_account(DocID, Rev_Id).
 	
 	
+%assertEqual({ok,{{"HTTP/1.1",200,"OK"},_Array,_ID}}, tr_server:query_all()).
+	 
+%assertEqual({ok,{{"HTTP/1.1",201,"Created"},_Array,_ID}}, tr_server:add_account("Roger","Wn","234871","80000000000AD")).
+
+%% other test cases.....
+%%......
